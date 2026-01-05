@@ -132,14 +132,14 @@ inline std::string trim(std::string_view sv) {
 // Convert string to lowercase (copy)
 inline std::string to_lower_copy(std::string_view sv) {
 	std::string s(sv);
-	std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) { return std::tolower(c); });
+	std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) { return static_cast<char>(std::tolower(c)); });
 	return s;
 }
 
 // Convert string to uppercase (copy)
 inline std::string to_upper_copy(std::string_view sv) {
 	std::string s(sv);
-	std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) { return std::toupper(c); });
+	std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) { return static_cast<char>(std::toupper(c)); });
 	return s;
 }
 
